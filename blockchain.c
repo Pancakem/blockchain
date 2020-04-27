@@ -56,6 +56,7 @@ Block *mine_block(Blockchain *chain, char *data) {
   int i = 0;
   do {
     nonce++;
+    free(new_block->hash);
     new_block->hash = calculate_hash(new_block);
     i++;
   } while (i < chain->difficulty);
